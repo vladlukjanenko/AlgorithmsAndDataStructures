@@ -18,7 +18,13 @@ public abstract class Sorting<T extends Comparable<T>>{
 	/**
 	 * The array of elements to be sorted.
 	 * */
-	private T[] arr;
+	public T[] arr;
+	
+	/**
+	 * Time elapsed to sort elements. By default it is the minimum value of long
+	 * type. 
+	 * */
+	protected long elapsedTime = Long.MIN_VALUE;
 	
 	/**
 	 * Constructor to initialize fields.
@@ -30,16 +36,7 @@ public abstract class Sorting<T extends Comparable<T>>{
 		this.arr = arr;
 		this.length = this.arr.length;
 	}
-	
-	/**
-	 * Get array of elements.
-	 * 
-	 * @return T[] array of elements
-	 * */
-	public T[] getArr() {
-		return this.arr;
-	}
-	
+
 	/**
 	 * Swaps array elements that have indexes i and j.
 	 * 
@@ -60,12 +57,32 @@ public abstract class Sorting<T extends Comparable<T>>{
 		
 		}
 	}
+	
+	/**
+	 * Used to get time spent on sorting of the array.
+	 * 
+	 * @return elapsedTime time elapsed to sort elements.
+	 * */
+	public void printElapsedTime() {
+		System.out.println("Elapsed time: " + elapsedTime + " nanoseconds.");
+	}
+	
+	/**
+	 * Prints array of elements. 
+	 * */
+	public void print() {
+		
+		for (int i = 0; i < length; i++) {
+			System.out.print(arr[i] + " ");
+		}
+		
+		System.out.println();
+
+	}
 		
 	/**
 	 * Each class that extends {@code Sorting<T>} must implement this method.
-	 * 
-	 * @param arr an array of elements to be sorted
 	 * */
-	public abstract void sort(T[] arr);
+	public abstract void sort();
 	
 }
