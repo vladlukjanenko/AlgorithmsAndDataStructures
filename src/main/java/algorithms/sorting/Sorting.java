@@ -8,7 +8,7 @@ package algorithms.sorting;
  * @author Vlad Lukjanenko
  *
  * */
-public abstract class Sorting<T extends Comparable<T>>{
+public abstract class Sorting<E extends Comparable<E>>{
 	
 	/**
 	 * The length of the array to be sorted. 
@@ -18,7 +18,7 @@ public abstract class Sorting<T extends Comparable<T>>{
 	/**
 	 * The array of elements to be sorted.
 	 * */
-	public T[] arr;
+	public E[] arr;
 	
 	/**
 	 * Time elapsed to sort elements. By default it is the minimum value of long
@@ -31,7 +31,7 @@ public abstract class Sorting<T extends Comparable<T>>{
 	 * 
 	 * @param arr initial array.
 	 * */
-	public Sorting(T[] arr) {
+	public Sorting(E[] arr) {
 
 		this.arr = arr;
 		this.length = this.arr.length;
@@ -45,13 +45,13 @@ public abstract class Sorting<T extends Comparable<T>>{
 	 * @param j index of element of the array to be swapped
 	 * @throws NullPointerException if array is null
 	 * */
-	public void swap(T[] arr, int i, int j) {
+	public void swap(E[] arr, int i, int j) {
 		
 		if (arr == null) {
 			throw new NullPointerException();
 		} else {
 			
-			T temp = arr[i];
+			E temp = arr[i];
 			arr[i] = arr[j];
 			arr[j] = temp; 
 		
@@ -68,7 +68,8 @@ public abstract class Sorting<T extends Comparable<T>>{
 	}
 	
 	/**
-	 * Prints array of elements. 
+	 * Prints array of elements. Works only for wrapper classes and class {@code String}.
+	 * It is used for simplicity to test algorithm work.
 	 * */
 	public void print() {
 		

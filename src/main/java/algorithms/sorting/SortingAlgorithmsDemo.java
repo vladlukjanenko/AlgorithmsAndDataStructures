@@ -18,6 +18,9 @@ public class SortingAlgorithmsDemo {
 		Sorting<Integer> insertionSort = new InsertionSort<Integer>(new Integer[] {5,2,4,6,1,3});
 		insertionSort.sort();
 		
+		Sorting<Integer> mergeSort = new MergeSort<Integer>(new Integer[] {5,2,4,6,1,3});
+		mergeSort.sort();
+		
 	}
 
 }

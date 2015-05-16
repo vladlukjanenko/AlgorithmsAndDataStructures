@@ -7,14 +7,14 @@ package algorithms.sorting;
  * @author Vlad Lukjanenko
  *
  * */
-public class InsertionSort<T extends Comparable<T>> extends Sorting<T> {
+public class InsertionSort<E extends Comparable<E>> extends Sorting<E> {
 
 	/**
 	 * Initialize array.
 	 * 
 	 * @param arr initial array.
 	 * */
-	public InsertionSort(T[] arr) {
+	public InsertionSort(E[] arr) {
 		super(arr);
 		
 		System.out.println("	Insertion Sort Algorithm");
@@ -33,7 +33,7 @@ public class InsertionSort<T extends Comparable<T>> extends Sorting<T> {
 		
 		for (int i = 1; i < length; i++) {
 
-			T key = arr[i]; // get key element
+			E key = arr[i]; // get key element
 			int j = i - 1;
 
 			/* compare arr[j] > key */
