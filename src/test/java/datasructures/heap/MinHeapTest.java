@@ -16,25 +16,39 @@ import datastructures.heap.Heap.HeapType;
 public class MinHeapTest {
 
 	private Heap<Integer> minHeap = null;
-	
+
 	@Before
 	public void init() {
-		minHeap = new Heap<Integer>(new Integer[] {6,10,2,4,5,1}, HeapType.MIN_HEAP);
+		minHeap = new Heap<Integer>(new Integer[] { 6, 10, 2, 4, 5, 1 },
+				HeapType.MIN_HEAP);
 	}
-	
+
 	@Test
 	public void test() {
 
-		boolean isHeap = false;
-		
 		minHeap.buildMinHeap();
+
+		boolean isHeap = true;
 		
-		while (!isHeap) {
-			
-			
-			
+		/*
+		 * If we have correct min heap, each parent element must be less or
+		 * equals than any of its' children.
+		 */
+		for (int i = 1; i < minHeap.heapSize && isHeap == true; i++) {
+
+			if (minHeap.left(i) < minHeap.heapSize
+					&& minHeap.parent(i) >= minHeap.left(i)) {
+
+				isHeap = false;
+			}
+
+			if (minHeap.right(i) < minHeap.heapSize
+					&& minHeap.parent(i) >= minHeap.right(i)) {
+				isHeap = false;
+			}
+
 		}
-		
+
 		assertEquals(true, isHeap);
 	}
 
