@@ -6,7 +6,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 /*
- * Test Merge Sort algorithm. Must sort input array ascending order. 
+ * Test Merge Sort algorithm. Must sort input array ascending order.
+ * 
+ * @author Vlad Lukjanenko
  * */
 public class MergeSortTest {
 

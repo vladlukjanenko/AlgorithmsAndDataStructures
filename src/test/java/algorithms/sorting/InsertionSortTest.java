@@ -6,7 +6,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 /*
- * Test Insertion Sort algorithm. Must sort input array ascending order. 
+ * Test Insertion Sort algorithm. Must sort input array ascending order.
+ * 
+ * @author Vlad Lukjanenko
  * */
 public class InsertionSortTest {
 
