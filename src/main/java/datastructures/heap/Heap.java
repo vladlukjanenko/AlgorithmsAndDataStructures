@@ -7,17 +7,17 @@ package datastructures.heap;
  * @author Vlad Lukjanenko
  *
  * */
-public class Heap<T extends Comparable<T>> {
+public class Heap<E extends Comparable<E>> {
 
 	/**
 	 * Heap size.
 	 * */
-	public final int heapSize;
+	public int heapSize;
 
 	/**
 	 * Heap elements.
 	 * */
-	private T[] elements;
+	private E[] elements;
 
 	/**
 	 * Type of binary heap.
@@ -51,7 +51,7 @@ public class Heap<T extends Comparable<T>> {
 	 * 
 	 * @param heapSize initial size of binary heap.
 	 * */
-	public Heap(T[] elements, HeapType type) {
+	public Heap(E[] elements, HeapType type) {
 
 		this.heapSize = elements.length;
 		this.elements = elements;
@@ -84,7 +84,7 @@ public class Heap<T extends Comparable<T>> {
 	 * 
 	 * @return elements heap elements.
 	 * */
-	public T[] getElements() {
+	public E[] getElements() {
 		return elements;
 	}
 
@@ -143,7 +143,7 @@ public class Heap<T extends Comparable<T>> {
 	/**
 	 * Makes balancing of non flowing heap.
 	 * */
-	public void maxHeapify(T[] a, int i) {
+	public void maxHeapify(E[] a, int i) {
 		
 		int l = left(i);
 		int r = right(i);
@@ -174,7 +174,7 @@ public class Heap<T extends Comparable<T>> {
 	/**
 	 * Makes balancing of non growing heap.
 	 * */
-	public void minHeapify(T[] a, int i) {
+	public void minHeapify(E[] a, int i) {
 
 		int l = left(i);
 		int r = right(i);
@@ -204,13 +204,13 @@ public class Heap<T extends Comparable<T>> {
 	 * @param j index of element of the array to be swapped
 	 * @throws NullPointerException if array is null
 	 * */
-	public void swap(T[] arr, int i, int j) {
+	public void swap(E[] arr, int i, int j) {
 		
 		if (arr == null) {
 			throw new NullPointerException();
 		} else {
 			
-			T temp = arr[i];
+			E temp = arr[i];
 			arr[i] = arr[j];
 			arr[j] = temp; 
 		

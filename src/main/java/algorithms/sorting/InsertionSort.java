@@ -15,6 +15,7 @@ public class InsertionSort<E extends Comparable<E>> extends Sorting<E> {
 	 * @param arr initial array.
 	 * */
 	public InsertionSort(E[] arr) {
+		
 		super(arr);
 		
 		System.out.println("	Insertion Sort Algorithm");
