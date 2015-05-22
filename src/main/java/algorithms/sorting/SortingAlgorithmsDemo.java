@@ -19,10 +19,13 @@ public class SortingAlgorithmsDemo {
 		insertionSort.sort();
 		
 		Sorting<Integer> mergeSort = new MergeSort<Integer>(new Integer[] {5,2,4,6,1,3});
-		mergeSort.sort();*/
+		mergeSort.sort();
 		
 		Sorting<Integer> heapSort = new HeapSort<Integer>(new Integer[] {5,2,4,6,1,3});
-		heapSort.sort();
+		heapSort.sort();*/
+		
+		Sorting<Integer> quickSort = new QuickSort<Integer>(new Integer[] {5,2,4,6,1,3});
+		quickSort.sort();
 		
 	}
 

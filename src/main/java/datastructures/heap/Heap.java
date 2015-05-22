@@ -195,6 +195,10 @@ public class Heap<E extends Comparable<E>> {
 			minHeapify(a, smallest);
 		}
 	}
+	
+	/**
+	 * 
+	 * */
 
 	/**
 	 * Swaps array elements that have indexes i and j.
