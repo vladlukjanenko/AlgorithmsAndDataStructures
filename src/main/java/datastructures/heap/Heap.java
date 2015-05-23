@@ -7,51 +7,39 @@ package datastructures.heap;
  * @author Vlad Lukjanenko
  *
  * */
-public class Heap<E extends Comparable<E>> {
+public abstract class Heap<E extends Comparable<E>> {
 
 	/**
 	 * Heap size.
 	 * */
-	public int heapSize;
+	protected int heapSize;
 
 	/**
 	 * Heap elements.
 	 * */
-	private E[] elements;
+	protected E[] elements;
 
-	/**
-	 * Type of binary heap.
-	 * */
-	public enum HeapType {
-		MAX_HEAP, MIN_HEAP
-	}
 
 	/**
 	 * Initialize empty binary heap.
 	 * 
 	 * @param heapSize initial size of binary heap.
 	 * */
-	public Heap(int heapSize, HeapType type) {
+	public Heap(int heapSize) {
 
 		System.out.println("	Heap");
 		System.out.println("Building...");
 		
 		this.heapSize = heapSize;
 		
-		if (type == HeapType.MAX_HEAP) {
-			buildMaxHeap();
-		} else if (type == HeapType.MIN_HEAP) {
-			buildMinHeap();
-		}
-	
 	}
 	
 	/**
 	 * Initialize binary heap with array.
 	 * 
-	 * @param heapSize initial size of binary heap.
+	 * @param elements initial array.
 	 * */
-	public Heap(E[] elements, HeapType type) {
+	public Heap(E[] elements) {
 
 		this.heapSize = elements.length;
 		this.elements = elements;
@@ -63,20 +51,6 @@ public class Heap<E extends Comparable<E>> {
 
 		System.out.println("Building...");
 
-		if (type == HeapType.MAX_HEAP) {
-
-			buildMaxHeap();
-			System.out.print("Heap: ");
-			print();
-
-		} else if (type == HeapType.MIN_HEAP) {
-
-			buildMinHeap();
-			System.out.print("Heap: ");
-			print();
-
-		}
-	
 	}
 	
 	/**
