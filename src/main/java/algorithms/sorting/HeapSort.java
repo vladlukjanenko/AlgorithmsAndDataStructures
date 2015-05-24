@@ -1,7 +1,6 @@
 package algorithms.sorting;
 
 import datastructures.heap.Heap;
-import datastructures.heap.Heap.HeapType;
 
 /**
  * Provides sorting of any array using Heap Sort algorithm.
@@ -32,7 +31,7 @@ public class HeapSort<E extends Comparable<E>> extends Sorting<E> {
 	@Override
 	public void sort() {
 		
-		/* Create maxHeap*/
+	/*	 Create maxHeap
 		Heap<E> maxHeap = new Heap<E>(arr, HeapType.MAX_HEAP);
 		
 		elapsedTime = System.nanoTime(); // get time of start
@@ -50,7 +49,7 @@ public class HeapSort<E extends Comparable<E>> extends Sorting<E> {
 		print(); // print sorted array
 		printElapsedTime(); // print elapsed time
 		
-		
+		*/
 	}
 
 }

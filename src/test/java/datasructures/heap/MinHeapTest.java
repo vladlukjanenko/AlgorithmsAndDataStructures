@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import datastructures.heap.Heap;
-import datastructures.heap.Heap.HeapType;
+import datastructures.heap.MinHeap;
 
 /*
  * Test Heap data structure. Must build min Heap.
@@ -19,14 +19,11 @@ public class MinHeapTest {
 
 	@Before
 	public void init() {
-		minHeap = new Heap<Integer>(new Integer[] { 6, 10, 2, 4, 5, 1 },
-				HeapType.MIN_HEAP);
+		minHeap = new MinHeap<Integer>(new Integer[] { 6, 10, 2, 4, 5, 1 });
 	}
 
 	@Test
 	public void test() {
-
-		minHeap.buildMinHeap();
 
 		boolean isHeap = true;
 		
@@ -50,6 +47,7 @@ public class MinHeapTest {
 		}
 
 		assertEquals(true, isHeap);
+		
 	}
 
 }

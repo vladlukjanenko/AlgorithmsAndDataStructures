@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import datastructures.heap.Heap;
-import datastructures.heap.Heap.HeapType;
+import datastructures.heap.MaxHeap;
 
 /*
  * Test Heap data structure. Must build max Heap.
@@ -20,15 +20,12 @@ public class MaxHeapTest {
 	@Before
 	public void init() {
 
-		maxHeap = new Heap<Integer>(new Integer[] { 6, 10, 2, 4, 5, 1 },
-				HeapType.MAX_HEAP);
+		maxHeap = new MaxHeap<Integer>(new Integer[] { 6, 10, 2, 4, 5, 1 });
 
 	}
 
 	@Test
 	public void test() {
-
-		maxHeap.buildMaxHeap();
 
 		boolean isHeap = true;
 
@@ -50,7 +47,9 @@ public class MaxHeapTest {
 			}
 
 		}
+		
 		assertEquals(true, isHeap);
+		
 	}
 
 }

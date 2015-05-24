@@ -12,7 +12,7 @@ public abstract class Heap<E extends Comparable<E>> {
 	/**
 	 * Heap size.
 	 * */
-	protected int heapSize;
+	public int heapSize;
 
 	/**
 	 * Heap elements.
@@ -52,15 +52,6 @@ public abstract class Heap<E extends Comparable<E>> {
 		System.out.println("Building...");
 
 	}
-	
-	/**
-	 * Get array of heap elements.
-	 * 
-	 * @return elements heap elements.
-	 * */
-	public E[] getElements() {
-		return elements;
-	}
 
 	/**
 	 * Get parent element of i node.
@@ -93,88 +84,6 @@ public abstract class Heap<E extends Comparable<E>> {
 	}
 	
 	/**
-	 * Build max heap.
-	 * */
-	public void buildMaxHeap() {
-		
-		for(int i = heapSize/2; i >= 0 ; i--) {
-			maxHeapify(elements, i);
-		}
-		
-	}
-	
-	/**
-	 * Build min heap.
-	 * */
-	public void buildMinHeap() {
-		
-		for(int i = heapSize/2; i >= 0 ; i--) {
-			minHeapify(elements, i);
-		}
-		
-	}
-	
-	/**
-	 * Makes balancing of non flowing heap.
-	 * */
-	public void maxHeapify(E[] a, int i) {
-		
-		int l = left(i);
-		int r = right(i);
-		
-		int largest;
-		
-		/* l <= heap_size[A] and A[l] > A[i] */
-		if(l < heapSize && a[l].compareTo(a[i]) > 0) {
-			largest = l;
-		} else {
-			largest = i;
-		}
-		
-		/* r <= heap_size[A] and A[r] > A[largest] */
-		if(r < heapSize && a[r].compareTo(a[largest]) > 0) {
-			largest = r;
-		}
-		
-		if(largest != i) {
-			
-			swap(a, i, largest);
-			maxHeapify(a, largest);
-			
-		}
-		
-	}
-
-	/**
-	 * Makes balancing of non growing heap.
-	 * */
-	public void minHeapify(E[] a, int i) {
-
-		int l = left(i);
-		int r = right(i);
-
-		int smallest = i;
-
-		/* l <= heap_size[A] and A[l] < A[i] */
-		if (l < heapSize && a[l].compareTo(a[i]) < 0)
-			smallest = l;
-
-		/* r <= heap_size[A] and A[r] < A[smallest] */
-		if (r < heapSize && a[r].compareTo(a[smallest]) < 0 )
-			smallest = r;
-
-		if (smallest != i) {
-			
-			swap(a, i, smallest);
-			minHeapify(a, smallest);
-		}
-	}
-	
-	/**
-	 * 
-	 * */
-
-	/**
 	 * Swaps array elements that have indexes i and j.
 	 * 
 	 * @param arr an array of elements to be sorted
@@ -193,6 +102,7 @@ public abstract class Heap<E extends Comparable<E>> {
 			arr[j] = temp; 
 		
 		}
+		
 	}
 	
 	/**
