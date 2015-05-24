@@ -1,8 +1,9 @@
 package datastructures.heap;
 
 /**
- * Represents Binary Heap data structure. This class provides operations for
- * inserting and removing elements of binary heap.
+ * Represents Abstract Binary Heap data structure. This class provides some
+ * common operations for binary heap and also defines operations which must be
+ * implemented in concrete classes.
  * 
  * @author Vlad Lukjanenko
  *
@@ -82,7 +83,7 @@ public abstract class Heap<E extends Comparable<E>> {
 	public int right(int i) {
 		return 2 * i + 2;
 	}
-	
+		
 	/**
 	 * Swaps array elements that have indexes i and j.
 	 * 
@@ -110,11 +111,17 @@ public abstract class Heap<E extends Comparable<E>> {
 	 * */
 	public void print() {
 		
-		for(int i = 0; i < elements.length; i++) 
+		for(int i = 0; i < heapSize; i++) 
 			System.out.print(elements[i] + " ");
 		
 		System.out.println();
 		
 	}
+	
+	public abstract E heapMaximum();
+	public abstract E extractMaximun();
+	public abstract E heapMinimum();
+	public abstract E extractMinimum();
+	public abstract void changeKey(int i, E key);
 	
 }

@@ -100,6 +100,7 @@ public class QuickSort<E extends Comparable<E>> extends Sorting<E> {
 	 * @param p start index.
 	 * @param r end index.
 	 * */
+	@SuppressWarnings("unused")
 	private int randomizedPartition(E[] arr, int p, int r) {
 		
 		int i = (new Random()).nextInt(r - p) + p;
