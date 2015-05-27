@@ -1,7 +1,6 @@
 package order.statictics;
 
-import algorithms.sorting.InsertionSort;
-import algorithms.sorting.Sorting;
+import java.util.Random;
 
 /**
  * Describes class for working with order statistics.
@@ -13,14 +12,14 @@ public class OrderStatistics {
 	/*
 	 * Order statistic.
 	 * */
-	private Integer[] arr = null;
+	private int[] arr = null;
 	
 	/**
 	 * Initialize array.
 	 * 
 	 * @param arr initial array.
 	 * */
-	public OrderStatistics(Integer[] arr) {
+	public OrderStatistics(int[] arr) {
 		
 		this.arr = arr;
 		
@@ -37,7 +36,7 @@ public class OrderStatistics {
 	 * 
 	 * @return maximum element.
 	 * */
-	public Integer getMaximum() {
+	public int getMaximum() {
 		return arr[arr.length-1];
 	}
 	
@@ -46,7 +45,7 @@ public class OrderStatistics {
 	 * 
 	 * @return minimum element.
 	 * */
-	public Integer getMimimum() {
+	public int getMimimum() {
 		return arr[0];
 	}
 	
@@ -55,7 +54,7 @@ public class OrderStatistics {
 	 * 
 	 * @return maximum element.
 	 * */
-	public Integer maximum() {
+	public int maximum() {
 		
 		Integer max = arr[0];
 		
@@ -76,7 +75,7 @@ public class OrderStatistics {
 	 * 
 	 * @return minimum element.
 	 * */
-	public Integer minimum() {
+	public int minimum() {
 		
 		Integer min = arr[0];
 		
@@ -93,41 +92,99 @@ public class OrderStatistics {
 	}
 	
 	/**
-	 * Find minimum and maximum elements simultaneously.
+	 * Find element which is i-th growth in unsorted array. Complexity of the
+	 * algorithm is O(n) (average).
+	 * 
+	 * @param p start index.
+	 * @param r end index.
+	 * @param i index.
 	 * */
-	public int[] findMinMax() {
+	public int randomizedSelect(int p, int r, int i) {
 		
-		int min = -1, max = -1;
+		if (p == r) {
+			return arr[p];
+		}
 		
-		// if length of order statistic is even
-		if (arr.length % 2 == 0) {
-			
-			// we take first pair of elements
-			if (arr[0] <= arr[1]) {
-			
-				min = arr[0];
-				max = arr[1];
-			
-			} else {
-				
-				min = arr[1];
-				max = arr[0];
-				
+		int q = randomizedPartition(arr, p, r);		
+		int k = q - p + 1;
+		
+		if (i == k) {
+			return arr[q];
+		} else if (i < k) {
+			return randomizedSelect(p, q - 1, i);
+		} else {
+			return randomizedSelect(q + 1, r, i - k);
+		}
+		
+	}
+
+	/**
+	 * Get pivot element of the array.
+	 * 
+	 * @param arr array for searching.
+	 * @param p start index.
+	 * @param r end index.
+	 * */
+	private int partition(int[] arr, int p, int r) {
+		
+		int x = arr[r];
+		int i = p - 1;
+
+		for (int j = p; j < r; j++) {
+
+			if (arr[j] <= x) {
+
+				i++;
+				swap(arr, i, j);
+
 			}
-			
+
+		}
+
+		swap(arr, i + 1, r);
+
+		return i + 1;
+		
+	}
+	
+	/**
+	 * Get pivot element of the array.
+	 * 
+	 * @param arr array for searching.
+	 * @param p start index.
+	 * @param r end index.
+	 * */
+	private int randomizedPartition(int[] arr, int p, int r) {
+		
+		int i = (new Random()).nextInt(r - p) + p;
+		
+		System.out.println(i);
+		
+		swap(arr, r, i);
+		
+		return partition(arr, p, r);
+		
+	}
+	
+	/**
+	 * Swaps array elements that have indexes i and j.
+	 * 
+	 * @param arr an array of elements to be sorted
+	 * @param i index of element of the array to be swapped
+	 * @param j index of element of the array to be swapped
+	 * @throws NullPointerException if array is null
+	 * */
+	private void swap(int[] arr, int i, int j) {
+		
+		if (arr == null) {
+			throw new NullPointerException();
 		} else {
 			
-			// we make first element both maximum and minimum
-			min = arr[0];
-			max = arr[0];
-			
-		}
+			int temp = arr[i];
+			arr[i] = arr[j];
+			arr[j] = temp; 
 		
-		for (int i = 2; i < arr.length; i++) {
-			
 		}
-		
-		return new int[] { min, max};
 	}
 	
 	/**
