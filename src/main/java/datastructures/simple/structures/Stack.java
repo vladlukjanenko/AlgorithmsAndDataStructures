@@ -70,7 +70,7 @@ public class Stack<E> {
 	}
 	
 	/**
-	 * return size of stack.
+	 * Return size of stack.
 	 * 
 	 * @return stack size.
 	 * */
