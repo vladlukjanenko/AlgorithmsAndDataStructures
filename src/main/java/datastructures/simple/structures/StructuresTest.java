@@ -32,11 +32,14 @@ public class StructuresTest {
 		list.insertTail(4);
 		list.insertTail(5);
 		
-		list.print();
+		list.printFromHead();
+		list.printFromTail();
+		
+		System.out.println("Index: " + list.search(2) + " , element: " + 2);
 		
 		list.insertTail(7);
 		
-		list.print();
+		list.printFromHead();
 		
 	}
 

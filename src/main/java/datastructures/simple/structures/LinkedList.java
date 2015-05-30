@@ -5,7 +5,7 @@ package datastructures.simple.structures;
  * 
  * @author Vlad Lukjanenko
  * */
-public class LinkedList<E> implements List<E> {
+public class LinkedList<E extends Comparable<E>> implements List<E> {
 
 	/**
 	 * Points to the start of list.
@@ -41,15 +41,14 @@ public class LinkedList<E> implements List<E> {
 			value = item;		
 		}
 		
-		/**
-		 * Set value of item.
-		 * 
-		 * @param value	new item value.
-		 * */
-		public void setValue(E value) {
-			this.value = value;
+		@Override
+		public boolean equals(Object obj) {
+			
+			@SuppressWarnings("unchecked")
+			Item i = (Item) obj;
+			
+			return i.value.compareTo(this.value) == 0 ? true : false;
 		}
-		
 	}
 	
 	/**
@@ -93,9 +92,9 @@ public class LinkedList<E> implements List<E> {
 	}
 
 	/**
-	 * Print list.
+	 * Print list starting from head.
 	 * */
-	public void print() {
+	public void printFromHead() {
 
 		Item print = head;
 
@@ -104,6 +103,25 @@ public class LinkedList<E> implements List<E> {
 			System.out.print(print.value + " ");
 
 			print = print.next;
+
+		}
+
+		System.out.println();
+
+	}
+	
+	/**
+	 * Print list starting from tail.
+	 * */
+	public void printFromTail() {
+
+		Item print = getLastItem();
+
+		while (print != null) {
+
+			System.out.print(print.value + " ");
+
+			print = print.prev;
 
 		}
 
@@ -155,9 +173,30 @@ public class LinkedList<E> implements List<E> {
 		
 	}
 
+	/**
+	 * Search if input value contains in the list. If value found - return index
+	 * where it is in the list.
+	 * 
+	 * @param value	value to search.
+	 * @return index in the list.
+	 * */
 	@Override
-	public E search() {
-		return null;
+	public int search(E value) {
+		
+		Item searchItem = new Item(value);
+		Item x = head;
+		int position = 0;
+		
+		while (x != null && searchItem.value != x.value) {
+			x = x.next;
+			position++;
+		}
+		
+		if (x == null) {
+			position = -1;
+		}
+		
+		return position;
 	}
 
 	@Override

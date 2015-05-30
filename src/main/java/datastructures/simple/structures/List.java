@@ -9,7 +9,7 @@ public interface List<E> {
 	
 	public void insertHead(E element);
 	public void insertTail(E element);
-	public E search();
+	public int search(E value);
 	public void delete(E element);
 	
 }
