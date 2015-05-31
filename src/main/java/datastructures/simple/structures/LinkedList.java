@@ -188,8 +188,10 @@ public class LinkedList<E extends Comparable<E>> implements List<E> {
 		int position = 0;
 		
 		while (x != null && searchItem.value != x.value) {
+			
 			x = x.next;
 			position++;
+			
 		}
 		
 		if (x == null) {
@@ -199,10 +201,42 @@ public class LinkedList<E extends Comparable<E>> implements List<E> {
 		return position;
 	}
 
+	/**
+	 * Delete element from list.
+	 * 
+	 * @param element	key of element to be deleted.
+	 * */
 	@Override
 	public void delete(E element) {
 		
+		Item deleteElement = new Item(element);
+		Item x = head;
 		
+		while (x != null && deleteElement.value != x.value) {
+			x = x.next;
+		}
+		
+		if (x == null) {
+			System.out.println("Element not found.");
+		} else {
+			
+			if (x.prev != null) {
+				
+				Item prevX = x.prev;
+				prevX.next = x.next;
+				
+			} else {
+				head = x.next;
+			}
+			
+			if (x.next != null) {
+				
+				Item nextX = x.next;
+				nextX.prev = x.prev;
+				
+			}
+			
+		}
 		
 	}
 

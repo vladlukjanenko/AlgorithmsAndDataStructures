@@ -33,11 +33,10 @@ public class StructuresTest {
 		list.insertTail(5);
 		
 		list.printFromHead();
-		list.printFromTail();
-		
-		System.out.println("Index: " + list.search(2) + " , element: " + 2);
 		
 		list.insertTail(7);
+		
+		list.delete(1);
 		
 		list.printFromHead();
 		
